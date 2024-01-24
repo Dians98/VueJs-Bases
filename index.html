@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les bases de vueJs</title>
+    
+</head>
+<body>
+
+    <div id="mon_app" class="container" >
+        <h1>Vuejs</h1>
+        <p> {{ calculate(1,2) }} </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.common.dev.min.js"></script>
+
+    <script>
+        /**
+         * Création d'un instance de vue
+         *
+         */
+        new Vue({
+            //el pour dire l'élément : represente l'id d'une DIV
+            el : '#mon_app',      
+            //data c'est les données    
+            data : 
+            {
+                txt : 'Le résultat du calcul est de : ',
+            },
+            //syntaxe reservée pour énumérer les fonctions
+            methods : 
+            {
+                //nomFonction : function()
+                calculate: function(a, b)
+                {
+                    let sum = a+ b;
+                    //On utilise this pour se référer aux données interne de l'instance
+                    return this.txt + sum  ;
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>
