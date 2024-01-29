@@ -30,13 +30,26 @@
             .stop pour stop propagation
             .prevent pour eviter qu'un bouton submit recharge la page à chaque fois pour un btn de type submit
         -->
-        <button v-on:click.once="clicked">Clique-moi</button>
+        <button v-on:click.once="clicked">Clique-moi et check ta console</button>
             <br>
             <br>
             <!-- 
                 key modifiers c'est pour démarrer un évènement à partir d'une touche clavier
             -->
-        <input type="text" v-on:keyup.enter ="detect_enter">
+        <input type="text" v-on:keyup.enter ="detect_enter" placeholder="Detect enter">
+        <br>
+        <br>
+        <!-- 
+            v-model est utlisé pour faire du 2 way binding en vueJs, i-e lier notre input directement à la data dans l'instance de view
+        -->
+        <input type="text" v-model = "value" placeholder="V-model application">
+        <p>{{ value }}</p>
+
+        <h4> En bas, c'est un HTML BRUT</h4>
+        <!-- 
+            v-html est utilisé pour afficher du HTML en enlevant les balises
+        -->
+        <p v-html="myHtmlBrut">myHtmlBrut</p>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.common.dev.min.js"></script>
@@ -48,7 +61,9 @@
             data : 
             {
                 offsetX : 0,
-                offsetY : 0
+                offsetY : 0,
+                value : "",
+                myHtmlBrut : "<p> HTML BRUT </p>"
             },
 
             methods : 
