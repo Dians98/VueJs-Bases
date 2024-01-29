@@ -31,6 +31,12 @@
             .prevent pour eviter qu'un bouton submit recharge la page à chaque fois pour un btn de type submit
         -->
         <button v-on:click.once="clicked">Clique-moi</button>
+            <br>
+            <br>
+            <!-- 
+                key modifiers c'est pour démarrer un évènement à partir d'une touche clavier
+            -->
+        <input type="text" v-on:keyup.enter ="detect_enter">
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.common.dev.min.js"></script>
@@ -47,9 +53,13 @@
 
             methods : 
             {
+                detect_enter: function()
+                {
+                    console.log("Tu as cliqué sur entrer");
+                },
                 get_mouse_position : function (e)
                 {
-                    console.log(e);
+                    //console.log(e);
                     this.offsetX = e.offsetX;
                     this.offsetY = e.offsetY;
                 },
