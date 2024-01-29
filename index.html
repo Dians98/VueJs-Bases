@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les bases de vueJs</title>
-    
 </head>
 <body>
 
     <div id="mon_app" class="container" >
         <h1>Vuejs</h1>
         <p> {{ calculate(1,2) }} </p>
+        <!-- 
+            On Utilise v-bind ou raccourci ":" pour lier des éléments de data dans l'instance de vue à un attribut 
+            En vueJs quand on emploie "v-" c'est pour annoncer une directive par ex v-bind pour binder des data
+        -->
+        <a v-bind:href="url_vue_js" > Lien vueJs </a>
+        <img :src="img_url" alt="Test">
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.common.dev.min.js"></script>
 
     <script>
         /**
-         * Création d'un instance de vue
+         * Création d'une instance de vue
          *
          */
         new Vue({
@@ -27,7 +32,11 @@
             data : 
             {
                 txt : 'Le résultat du calcul est de : ',
+                url_vue_js : "https://vuejs.org/",
+                img_url : "https://images.pexels.com/photos/9316207/pexels-photo-9316207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             },
+            
+
             //syntaxe reservée pour énumérer les fonctions
             methods : 
             {
