@@ -16,13 +16,21 @@
     <div id ="my_app" class="container">
         <!--
             Ici on a pas mis de parenthèse après le nom de la fonction
-            
+
             POURQUOI?
         -->
         <canvas v-on:mousemove="get_mouse_position">
 
         </canvas>
         <p> {{ offsetX }} / {{ offsetY }} </p>
+        <!-- 
+            Les event modifiers sont l'equivalent dans Javascript comme stop propagation, etc
+
+            .once pour dire que c'est clickable une seule fois
+            .stop pour stop propagation
+            .prevent pour eviter qu'un bouton submit recharge la page à chaque fois pour un btn de type submit
+        -->
+        <button v-on:click.once="clicked">Clique-moi</button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.common.dev.min.js"></script>
@@ -44,6 +52,10 @@
                     console.log(e);
                     this.offsetX = e.offsetX;
                     this.offsetY = e.offsetY;
+                },
+                clicked : function(e)
+                {
+                    console.log("Clicked");
                 }
             }
         })
