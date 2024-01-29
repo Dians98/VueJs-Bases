@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les directives</title>
+    <style>
+        canvas{
+            width: 300px;
+            height: 200px;
+            border : 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div id ="my_app" class="container">
+        <!--
+            Ici on a pas mis de parenthèse après le nom de la fonction
+            
+            POURQUOI?
+        -->
+        <canvas v-on:mousemove="get_mouse_position">
+
+        </canvas>
+        <p> {{ offsetX }} / {{ offsetY }} </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.common.dev.min.js"></script>
+    <script>
+
+        new Vue({
+            el: '#my_app',
+
+            data : 
+            {
+                offsetX : 0,
+                offsetY : 0
+            },
+
+            methods : 
+            {
+                get_mouse_position : function (e)
+                {
+                    console.log(e);
+                    this.offsetX = e.offsetX;
+                    this.offsetY = e.offsetY;
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>
