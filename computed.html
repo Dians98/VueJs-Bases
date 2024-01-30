@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed</title>
+</head>
+<body>
+    <div id="my_app" class="container">
+        <h4>Compteur A : {{ compteurA }}</h4>
+        <button v-on:click="compteurA++" >Augmenter </button>
+        <button v-on:click="compteurA--" >Diminuer </button>
+        <p> {{ check_compteur_A() }} </p>
+        <br>
+        <br>
+
+        <h4>Compteur B : {{ compteurB }}</h4>
+        <button v-on:click="compteurB++" >Augmenter </button>
+        <button v-on:click="compteurB--" >Diminuer </button>
+        <!-- 
+            Pour appeler une computed on a pas besoin de mettre les parenthèses ()
+        -->
+        <p> {{ check_compteur_B }} </p>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.common.dev.min.js"></script>
+
+    <script>
+
+        new Vue({
+            el : "#my_app",
+            data : 
+            {
+                compteurA : 0,
+                compteurB : 0
+            },
+            methods : 
+            {
+                check_compteur_A : function()
+                {
+                    console.log("check_compteur_A s'est lancée");
+                    return this.compteurA > 5 ? "Supérieur à 5" : "Inférieur à 5";
+                }
+            },
+                /*
+                    Computed est utilisée pour mémoriser une valeur, c'est à dire que tant que la valeur à l'interieur ne change pas (dans notre cas ici compteurB)
+                    elle ne sera jamais lancé
+
+                    A LA DIFFERENCE d'une methode, qui se lance à chaque fois que le DOM est re-rendered
+                */
+
+            computed : 
+            {
+                check_compteur_B : function()
+                {
+                    console.log("check_compteur_B s'est lancée");
+                    return this.compteurB > 5 ? "Supérieur à 5" : "Inférieur à 5";
+                }
+            } 
+        })
+
+    </script>
+</body>
+</html>
