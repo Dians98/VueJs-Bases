@@ -1,0 +1,13 @@
+<!-- Ancienne syntaxe -->
+<a v-bind:href="url">Lien</a>
+
+<!-- Nouvelle syntaxe -->
+<a :href="url">Lien</a>
+
+
+
+<!-- Ancienne syntaxe -->
+<button v-on:click="handleClick">Cliquez-moi</button>
+
+<!-- Nouvelle syntaxe -->
+<button @click="handleClick">Cliquez-moi</button>
