@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+</head>
+<body>
+    <div id="my_app" class="container">
+        <h4>Compteur A : {{ compteurA }}</h4>
+        <button v-on:click="compteurA++" >Augmenter </button>
+        <button v-on:click="compteurA--" >Diminuer </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script>
+
+        new Vue({
+            el : "#my_app",
+            data : 
+            {
+                compteurA : 0,
+                compteurB : 0
+            },
+            /*
+                vous permet d'observer les changements sur une propriété spécifique dans votre composant Vue 
+                et d'exécuter une fonction callback lorsque cette propriété change. 
+                Cela peut être utile pour réagir aux changements de données et effectuer des actions spécifiques en réponse.
+
+                N.B : A LA DIFFERENCE DE COMPUTED, watch n'a pas besoin d'être appellée, elle se fait automatiquement
+            */
+            watch : 
+            {
+                /* 
+                On met ici le nom de la propriété qu'on veut surveiller 
+                */
+                compteurA : function ()
+                {
+                    
+                    setTimeout(() => {
+                        this.compteurA = 0;
+                    }, 2000)
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
