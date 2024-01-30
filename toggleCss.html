@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle CSS</title>
+
+    <style>
+
+        .red {
+            background-color: red
+        }
+
+
+        .box {
+            height: 250px;
+            width: 250px;
+            border: 1px solid;
+        }
+
+        .border {
+            border: 5px solid;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div id="app" class="container">
+        <!-- 
+            "[] c'est pour specifier un tableau ecupéré à partir de computed"
+        -->
+        <div :class="[css_object, red ? 'border' : '' ]"></div>
+        <br>
+        <button @click="red = !red" >Toggle</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script>
+
+        new Vue({
+            el: "#app",
+
+            data:
+            {
+                red : false,
+            },
+
+            computed:
+            {
+                css_object: function()
+                {
+                    return {
+                        red : this.red,
+                        box : true
+                    }
+                }
+            },
+        })
+
+    </script>
+
+</body>
+</html>
