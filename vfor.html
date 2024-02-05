@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boucle v-for</title>
+</head>
+<body>
+    <div id="app">
+        <p>Ci-dessous la liste des meilleures chaines pour apprendre à programmer 
+            <button v-if="!display" @click="display = !display"> &#9660;</button> 
+            <button v-else @click="display = !display"> &#9650; </button> 
+        </p>
+        <template v-if="display">
+            <ul>
+                <li v-for="link in links" ><a href="{{link}}" target="_blank">{{link}}</a></li>
+            </ul>
+            
+        </template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script>
+         new Vue({
+            el : "#app",
+            data : 
+            {
+                display : false,
+                links : ["https://www.youtube.com/@academind", "https://www.youtube.com/@NetNinja", "https://www.youtube.com/@grafikart"]
+            }
+         })
+    </script>
+
+</body>
+</html>
