@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+</head>
+
+<body>
+    <!-- 
+        La template est utilisé pour faire un rendu conditionnel sur un bloc, pour éviter la répétition
+    -->
+    <div id="app">
+        <button @click="displayDiv = !displayDiv"> Afficher </button>
+        <template v-if="displayDiv">
+            <div class="container">
+                <h4>Ceci est une div</h4>
+                <p>Ceci est une paragraphe</p>
+            </div>
+
+        </template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script>
+        new Vue({
+            el : "#app",
+
+            data : 
+            {
+                displayDiv : false
+            }
+
+        })
+    </script>
+
+</body>
+</html>
