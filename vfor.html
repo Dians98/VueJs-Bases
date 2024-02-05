@@ -13,9 +13,15 @@
         </p>
         <template v-if="display">
             <ol>
-                <li v-for="link in links" ><a href={{link}} target="_blank">{{link}}</a></li>
+                <li v-for="object in links" >
+                    <a href="{{ object.link }}">
+                        <div v-for="(value, props) in object" >
+                            {{ props }} : {{value}}
+                        </div>
+                    </a>
+                    <br>
+                </li>
             </ol>
-            
         </template>
     </div>
 
@@ -27,7 +33,12 @@
             data : 
             {
                 display : false,
-                links : ["https://www.youtube.com/@academind", "https://www.youtube.com/@NetNinja", "https://www.youtube.com/@grafikart"]
+                links : 
+                [
+                    { name: 'academind', link: 'https://www.youtube.com/@academind' },
+                    { name: 'NetNinja', link: 'https://www.youtube.com/@NetNinja' },
+                    { name: 'grafikart', link: 'https://www.youtube.com/@grafikart' }
+                ]
             }
          })
     </script>
