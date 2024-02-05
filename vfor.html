@@ -12,9 +12,9 @@
             <button v-else @click="display = !display"> &#9650; </button> 
         </p>
         <template v-if="display">
-            <ul>
-                <li v-for="link in links" ><a href="{{link}}" target="_blank">{{link}}</a></li>
-            </ul>
+            <ol>
+                <li v-for="link in links" ><a href={{link}} target="_blank">{{link}}</a></li>
+            </ol>
             
         </template>
     </div>
