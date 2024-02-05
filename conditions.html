@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les conditions</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <h4>{{compteur}}</h4>
+        <button @click= "increment()" >Increment</button>
+        <button @click= "decrement()" > Decrement</button>
+        <br><br>
+        <i>La valeur du compteur actuellement est : 
+            <strong v-if="compteur === 0 ">0</strong>
+            <strong v-else-if="compteur === 1 ">1</strong>
+            <strong v-else-if="compteur === 2 ">2</strong>
+            <strong v-else-if="compteur === 3 ">3</strong>
+            <strong v-else="compteur === 0 ">Non renseigné</strong>
+        </i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <script>
+
+        new Vue({
+            el : "#app",
+            data : 
+            {
+                compteur : 0
+            },
+
+            methods : 
+            {
+                increment : function()
+                {
+                    return this.compteur++;
+                },
+                decrement : function()
+                {
+                    return this.compteur--;
+                }
+            },
+        })
+
+    </script>
+
+</body>
+</html>
