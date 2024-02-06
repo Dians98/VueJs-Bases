@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon premier composant</title>
+</head>
+<body>
+    <!-- 
+        Tous les sites web sont divisés en plusieurs composants
+    -->
+    <div id="app">
+        <!-- 
+            On appelle un composant comme on appelle une balise HTML
+        -->
+        <mon-nom></mon-nom>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> 
+
+    <script>
+
+        Vue.component('mon-nom', //un composant en général on l 'écrit comme ça
+        {
+            template:
+                " <p> Mon premier composant s'appelle {{ name }}, <i v-if='!changed'> mais si tu veux le changer vas-y </i> <button @click='changeComponentName' v-if='!changed'> Changer le nom </button></p> ",
+            /*
+                Dans un composant, les data sont des fonctions qui retournent un objet
+            */
+            data: function()
+            {
+                return {
+                    name : "John DOE",
+                    changed : false,
+                }
+            },
+            
+            methods:{
+                changeComponentName : function()
+                {
+                    this.name =  "ANDRIANTSALAMA Diano";
+                    this.changed = true;
+                }
+            }
+        })
+
+        new Vue({
+            el : "#app",
+        })
+
+
+    </script>
+
+</body>
+</html>
